@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.graphics.Point;
+import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.StateListDrawable;
 import android.os.Build;
@@ -76,12 +77,14 @@ public class MainActivity extends Activity implements OnClickListener {
 	
 		// add text
 		TextView textView = new TextView(this);
-		textView.setText("Select your attacker...");
+		textView.setText("  Select your office attacker...");
+        textView.setTypeface(Typeface.SANS_SERIF, Typeface.BOLD);
 		textView.setX(5);
 		textView.setY(5);
 		params = new RelativeLayout.LayoutParams(mScreenWidth * 9 / 10, 100);
 		textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
 		layout.addView(textView, params);
+
 
 		// Pirate
 		ImageView imageView = new ImageView(this);

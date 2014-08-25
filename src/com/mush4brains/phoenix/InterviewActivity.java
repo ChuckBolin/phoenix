@@ -1,11 +1,7 @@
 package com.mush4brains.phoenix;
 
-import java.util.Random;
-
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Color;
@@ -13,7 +9,6 @@ import android.graphics.Point;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.method.LinkMovementMethod;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.Display;
 import android.view.Gravity;
@@ -24,7 +19,8 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import java.util.Random;
 
 public class InterviewActivity extends Activity implements OnClickListener {
 
@@ -169,17 +165,19 @@ public class InterviewActivity extends Activity implements OnClickListener {
 
 		// A value of -1 indicates the terminating survival step.
 		if (mFirstResponseQuestionId == -1) {
-//		  Toast toast = Toast.makeText(getApplicationContext(), mSurvivalStep.getQuestionText() + "\n" + mSurvivalStep.getResponseText(0), Toast.LENGTH_SHORT);
-//		  toast.setGravity(Gravity.TOP, 0, 0);
-//		  toast.show();
-		  
-      Bundle bundle = new Bundle();
-      bundle.putString("message", mSurvivalStep.getQuestionText() + "\n" + mSurvivalStep.getResponseText(0));
-      Intent intent = new Intent(this, MessageActivity.class);
-      intent.putExtras(bundle);
-      startActivity(intent);		  
-		  
-			finish();
+
+            Bundle bundle = new Bundle();
+            bundle.putString("message", mSurvivalStep.getQuestionText() + "\n" + mSurvivalStep.getResponseText(0));
+            Intent intent = new Intent(this, MessageActivity.class);
+            intent.putExtras(bundle);
+            startActivity(intent);
+            try {
+                Thread.sleep(1500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            finish();
 		}
 
 		mFirstResponseButton.setText(mSurvivalStep.getResponseText(0));

@@ -46,7 +46,7 @@ public class MessageActivity extends Activity implements OnClickListener {
         size.y * 40 / 100);
     layout.setBackgroundColor(Color.rgb(163, 38, 56));
     layout.setX(10);
-    layout.setY(200);    
+    layout.setY(0);
     setContentView(layout, params);
 
     Bundle extras = getIntent().getExtras();
